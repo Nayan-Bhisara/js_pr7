@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 2. Write a JavaScript program that creates a class called "BankAccount" with properties for account number and
+    balance. Include methods to deposit and withdraw money from the account. Create some instances of the "BankAccount"
+    class, deposit some money, and withdraw a portion of it. -->
+
+    <script type="text/javascript">
+
+        class BankAccount{
+            constructor(acno,pass,name,balance){
+                this.acno = acno;
+                this.pass = pass;
+                this.name = name;
+                this.balance = balance;
+            }
+            withdraw(amtt){
+                let no = parseInt(prompt("Enter your accno :- "));
+                let passs = prompt("Enter your password :- ");
+                if(this.acno == no && this.pass == passs){
+                    if(this.balance > amtt){
+                        this.balance = this.balance - amtt
+                        console.log(`Acc name :- ${this.name}`);
+                        console.log(`your balance :- ${this.balance}`);
+                        console.log(`thank you...`);
+                    }else{
+                        console.warn(`insufficiant balance..`);
+                    }
+                }else{
+                    console.log(`invalid accno and password`);
+                }
+            }
+            deposit(amt){
+                let no = parseInt(prompt("Enter your accno :- "));
+                let passs = prompt("Enter your password :- ");
+                if(this.acno == no && this.pass == passs){
+                    this.balance = this.balance + amt
+                        console.log(`Acc name :- ${this.name}`);
+                        console.log(`your balance :- ${this.balance}`);
+                        console.log(`thank you...`);
+                }else{
+                    console.log(`invalid accno and password`);
+                }
+            }
+        }
+
+        let n = parseInt(prompt("Enter number of BankAccount details :- "));
+        for(var i=0;i<n;i++){
+            var acno = parseInt(prompt("Enter a Account Acno :- "));
+            var pass = prompt("Enter a Account password :- ");
+            var name = prompt("Enter a Account Name :- ");
+            var balance = parseInt(prompt("Enter person balance :- "));
+            var obj =  new BankAccount(acno,pass,name,balance);
+            obj.withdraw(1000);
+            obj.deposit(2000);
+        }
+
+    </script>
+
+</body>
+
+</html>
